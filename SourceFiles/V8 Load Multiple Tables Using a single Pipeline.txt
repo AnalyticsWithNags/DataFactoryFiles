@@ -1,0 +1,14 @@
+1) select name from sys.Objects where type='U'
+
+2) for each settings Items
+ @activity('Lookup1').output.value
+
+3)Copy Actvity
+Source tablename
+3.1)@item().name
+
+Target Table name
+3.2)@item().name
+
+Precopy Script
+@{concat('IF OBJECT_ID(''', 'dbo', '.', item().name, ''', ''U'') IS NOT NULL drop table ', 'dbo', '.',   item().name, ';')}
